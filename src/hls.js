@@ -682,6 +682,10 @@ export default class HlsjsPlayback extends HTML5Video {
 HlsjsPlayback.canPlay = function(resource, mimeType) {
   const resourceParts = resource.split('?')[0].match(/.*\.(.*)$/) || []
   const isHls = ((resourceParts.length > 1 && resourceParts[1].toLowerCase() === 'm3u8') || listContainsIgnoreCase(mimeType, ['application/vnd.apple.mpegurl', 'application/x-mpegURL']))
-
+  const videoEl=document.createElement('video');
+  //if browser can play  hls - no need use hls.js
+  if(videoEl.canPlayType('application/vnd.apple.mpegurl')==='maybe' || videoEl.canPlayType('application/vnd.apple.mpegurl')==='probably' ){
+    return false; 
+  }
   return !!(HLSJS.isSupported() && isHls)
 }
