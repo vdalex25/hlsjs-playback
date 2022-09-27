@@ -36,7 +36,7 @@
   "homepage": "https://github.com/clappr/hlsjs-playback",
   "peerDependencies": {
     "@clappr/core": "^0.4.18",
-    "hls.js": "^0.14.17"
+    "hls.js": "^1.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",
